@@ -1,0 +1,445 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toram Online - Fan Page</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f6f2;
+        }
+        header {
+            background-color: #1a2c42;
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+        }
+        nav a {
+            color: #f4e4c9;
+            text-decoration: none;
+            padding: 5px 15px;
+        }
+        nav a:hover {
+            background-color: #e3c291;
+            border-radius: 5px;
+        }
+        .hero {
+            position: relative;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+            height: 50vh;
+            overflow: hidden;
+            background-size: 400px 200px;
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: url('toram.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            filter: blur(2px);
+            z-index: 0;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }        
+        .hero h1 {
+            font-size: 4em;
+            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            animation: fadeInDown 1.5s ease-in-out;
+        }
+        .hero p {
+            font-size: 1.5em;
+            color: #e3c291;
+            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            animation: fadeInUp 1.5s ease-in-out;
+        }
+        .hero button {
+            background-color: #e3c291;
+            border: none;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            transition: transform 0.3s;
+        }
+        .hero button:hover {
+            background-color: #d0a676;
+            transform: scale(1.05);
+        }
+        .section {
+            padding: 50px;
+            text-align: center;
+        }
+        .news {
+            background-color: #f4f4f4;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 50px;
+        }
+        .news-item {
+            width: 45%;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 20px;
+        }
+        .features {
+            background-color: #eae2d7;
+        }
+        .classes-section {
+            background-color: #f8f6f2;
+            padding: 50px;
+            text-align: center;
+        }
+        .classes {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .class-card {
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 15px;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s, max-height 0.3s, flex 0.3s;
+            width: 300px;
+            overflow: hidden;
+            cursor: pointer;
+        }
+        .class-card.expanded {
+            flex: 1 1 100%;
+            max-height: 800px;
+            background-color: #fdfdfd;
+        }
+        .media-wrapper {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .media-wrapper img {
+            max-width: 100px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .media-wrapper video {
+            max-width: 160px;
+            height: auto;
+            border-radius: 10px;
+        }
+        .class-card p {
+            display: none;
+        }
+        .class-card.expanded p {
+            display: block;
+        }
+        footer {
+            background-color: #1a2c42;
+            color: white;
+            text-align: center;
+            padding: 20px 500px;
+        }
+        select {
+            padding: 5px;
+            margin-top: 10px;
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+      line-height: 1.6;
+    }
+
+    h1 {
+      margin-bottom: 20px;
+    }
+
+    .container {
+      display: flex;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .box {
+      flex: 1 1 500px;
+      padding: 15px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      min-width: 300px;
+    }
+
+    select {
+      padding: 5px;
+      margin-top: 10px;
+      width: 100%;
+    }
+
+    @media (max-width: 700px) {
+      .container {
+        flex-direction: column;
+      }
+    }
+
+    @keyframes fadeZoom {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.element-icon {
+  animation: fadeZoom 0.6s ease-in-out;
+  transition: transform 0.3s;
+}
+
+.element-icon:hover {
+  transform: scale(1.1);
+}
+
+.floating-buttons {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            z-index: 999;
+    }
+
+    .floating-buttons button {
+            background-color: #1a2c42;
+            color: white;
+            border: none;
+            padding: 10px 14px;
+            border-radius: 50px;
+            font-size: 1em;
+            cursor: pointer;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            transition: background-color 0.3s ease;
+    }
+
+    .floating-buttons button:hover {
+            background-color: #e3c291;
+            color: black;
+    }
+
+  </style>
+</head>
+    <body>
+        <header>
+            <h1>Toram Mini Database</h1>
+            <nav>
+                <a href="index.html">Home</a>
+                <a href="#news">News</a>
+                <a href="toramDB.html">Toram DB</a>
+                <a href="aboutus.html">About Us</a>
+            </nav>
+        </header>
+<h1>🗡️ Toram Online Mini Database</h1>
+
+<div class="container">
+    <!-- Weapon Compatibility Section -->
+    <div class="box">
+      <h2>Weapon Compatibility</h2>
+      <label for="weaponSelect">Choose a Main Weapon:</label><br>
+      <select id="weaponSelect">
+        <option value="">-- Select Weapon --</option>
+        <option value="Sword">Sword</option>
+        <option value="Bow">Bow</option>
+        <option value="Staff">Staff</option>
+        <option value="Knuckle">Knuckle</option>
+        <option value="Halberd">Halberd</option>
+      </select>
+  
+      <div id="weaponInfo"></div>
+    </div>
+  
+    <!-- Element Weakness Section -->
+<div class="box">
+  <h2>Element Weakness</h2>
+  <label for="elementSelect">Choose an Element:</label><br>
+  <select id="elementSelect">
+    <option value="">-- Select Element --</option>
+    <option value="Earth">Earth</option>
+    <option value="Wind">Wind</option>
+    <option value="Water">Water</option>
+    <option value="Fire">Fire</option>
+    <option value="Light">Light</option>
+    <option value="Dark">Dark</option>
+  </select>
+
+  <div id="elementInfo" style="text-align:center;"></div>
+</div>
+
+  
+  <script>
+  // Weapon Data
+  const weaponData = [
+    {
+      main: "Sword",
+      sub: ["Dagger", "Shield", "Arrow"],
+      canDash: true,
+      canGuard: true
+    },
+    {
+      main: "Bow",
+      sub: ["Arrow"],
+      canDash: true,
+      canGuard: false
+    },
+    {
+      main: "Staff",
+      sub: ["Shield", "Dagger"],
+      canDash: true,
+      canGuard: false
+    },
+    {
+      main: "Knuckle",
+      sub: ["Dagger"],
+      canDash: true,
+      canGuard: true
+    },
+    {
+      main: "Halberd",
+      sub: [],
+      canDash: true,
+      canGuard: false
+    }
+  ];
+  
+  // Element Weakness
+  const elementWeakness = {
+    Earth: "Wind",
+    Wind: "Water",
+    Water: "Fire",
+    Fire: "Earth",
+    Light: "Dark",
+    Dark: "Light"
+  };
+  
+  // Functions
+  const music = document.getElementById("bg-music");
+  const button = document.getElementById("music-btn");
+
+function toggleMusic() {
+  const music = document.getElementById("bg-music");
+  const button = document.getElementById("music-btn");
+
+  if (music.paused) {
+    music.play();
+    button.textContent = "⏸";
+  } else {
+    music.pause();
+    button.textContent = "🎵";
+  }
+}
+  function getWeaponInfo(mainWeapon) {
+    return weaponData.find(w => w.main === mainWeapon);
+  }
+  
+  function getWeakness(element) {
+    return elementWeakness[element] || "Unknown";
+  }
+  
+  // DOM Updates
+  document.getElementById("weaponSelect").addEventListener("change", function () {
+    const selected = this.value;
+    const info = getWeaponInfo(selected);
+    const output = document.getElementById("weaponInfo");
+  
+    if (!info) {
+      output.innerHTML = "";
+      return;
+    }
+  
+    output.innerHTML = `
+      <p><strong>Sub Weapons:</strong> ${info.sub.length > 0 ? info.sub.join(", ") : "None"}</p>
+      <p><strong>Can Dash/Dodge:</strong> ${info.canDash ? "✅ Yes" : "❌ No"}</p>
+      <p><strong>Can Guard:</strong> ${info.canGuard ? "✅ Yes" : "❌ No"}</p>
+    `;
+  });
+  
+  document.getElementById("elementSelect").addEventListener("change", function () {
+  const selected = this.value;
+  const weakness = getWeakness(selected);
+  const output = document.getElementById("elementInfo");
+
+  if (!selected) {
+    output.innerHTML = "";
+    return;
+  }
+
+  // Use the folder path with %20 for space
+  const imageSrc = "toram-icons/" + selected.toLowerCase() + "element.png";
+  const weaknessImageSrc = "toram-icons/" + weakness.toLowerCase() + "element.png";
+
+  output.innerHTML = `
+    <div>
+      <p><strong>${selected}</strong> is weak to <strong>${weakness}</strong>.</p>
+      <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap: wrap;">
+        <div>
+          <p><strong>${selected}</strong></p>
+          <img class="element-icon" src="${imageSrc}" alt="${selected} Element" width="100">
+        </div>
+        <div>
+          <p><strong>${weakness}</strong></p>
+          <img class="element-icon" src="${weaknessImageSrc}" alt="${weakness} Element" width="100">
+        </div>
+      </div>
+    </div>
+`;
+
+});
+
+
+  </script>
+         <!-- Floating Controls: Top & Music -->
+          
+    <div class="floating-buttons">
+        <button onclick="toggleMusic()" id="music-btn">🎵</button>
+      </div>
+      
+      <audio id="bg-music" loop>
+          <source src="toramgiffile/Poldeicevalley.mp3" type="audio/mpeg">
+          Your browser does not support the audio element.
+      </audio>
+    <footer>
+        <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Select a User with Biography and Image</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+    li {
+      margin-bottom: 20px;
+      list-style: none;
+    }
+    img {
+      max-width: 100px;
+      display: block;
+      margin-top: 5px;
+      border-radius: 8px;
+    }
+    select {
+      padding: 5px;
+      font-size: 16px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h2>Select a User</h2>
+  <select id="userSelect">
+    <option value="">-- Select a user --</option>
+  </select>
+
+  <h3>User Details:</h3>
+  <ul id="userList"></ul>
+
+  <script>
+    const userSelect = document.getElementById('userSelect');
+    const userList = document.getElementById('userList');
+
+    const defaultUsers = [
+      {
+        name: 'sampleuser1',
+        email: 'user1@email.com',
+        bio: 'Loves programming and coffee. Works as a frontend developer.',
+        image: 'https://media.giphy.com/media/26tn33aiTi1jkl6H6/giphy.gif'
+      },
+      {
+        name: 'sampleuser2',
+        email: 'user2@email.com',
+        bio: 'Enjoys hiking, photography, and building hobby projects.',
+        image: 'https://via.placeholder.com/100x100.png?text=User+2'
+      },
+      {
+        name: 'sampleuser3',
+        email: 'user3@email.com',
+        bio: 'Tech enthusiast and gamer. Learning full-stack development.',
+        image: 'https://via.placeholder.com/100x100.png?text=User+3'
+      }
+    ];
+
+    // Save users to localStorage for demo
+    localStorage.setItem('users', JSON.stringify(defaultUsers));
+
+    function getUsers() {
+      return JSON.parse(localStorage.getItem('users')) || [];
+    }
+
+    function populateDropdown(users) {
+      users.forEach((user, index) => {
+        const option = document.createElement('option');
+        option.value = index;
+        option.textContent = `${user.name} (${user.email})`;
+        userSelect.appendChild(option);
+      });
+    }
+
+    function showUserDetails(user) {
+      userList.innerHTML = `
+        <li>
+          <strong>${user.name}</strong> (${user.email})<br>
+          <em>${user.bio}</em><br>
+          <img src="${user.image}" alt="${user.name}'s picture">
+        </li>
+      `;
+    }
+
+    // Initialize
+    const users = getUsers();
+    populateDropdown(users);
+
+    // Event listener
+    userSelect.addEventListener('change', function () {
+      const selectedIndex = this.value;
+      if (selectedIndex !== '') {
+        const selectedUser = users[selectedIndex];
+        showUserDetails(selectedUser);
+      } else {
+        userList.innerHTML = '';
+      }
+    });
+  </script>
+</body>
+</html>
