@@ -6,6 +6,7 @@
     <title>Toram Online - Fan Page</title>
     <link rel="stylesheet" href="toram.css">
     <script>
+        // Function to toggle the expanded state of a class card
         function toggleCard(card) {
             const cards = document.querySelectorAll('.class-card');
             cards.forEach(c => {
@@ -16,6 +17,7 @@
             card.classList.toggle('expanded');
         }
 
+        // Function to show a play alert and redirect to the Toram Online website
         function showPlayAlert() {
             const go = confirm("You will be redirected to: https://en.toram.jp\n\nContinue?");
             if (go) {
@@ -23,10 +25,12 @@
             }
         }
 
+        // Function to smoothly scroll to the top of the page
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Function to toggle background music playback
         function toggleMusic() {
             const music = document.getElementById("bg-music");
             const button = document.getElementById("music-btn");
@@ -40,7 +44,7 @@
             }
         }
 
-        // Show button when user scrolls down 20px
+        // Show the "Top" button when the user scrolls down 20px from the top
         window.onscroll = function() {
             const btn = document.getElementById("topBtn");
             btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? "block" : "none";
@@ -51,6 +55,7 @@
     <header>
         <h1>Toram Online Fan Page</h1>
         <nav>
+            <!-- Navigation links for different sections of the page -->
             <a href="#home">Home</a>
             <a href="#news">News</a>
             <a href="#features">Game Features</a>
@@ -64,6 +69,7 @@
         <div class="hero-content">
             <h1>Toram Online Fan Page</h1>
             <p>Explore the world, craft your destiny, and battle fierce enemies.</p>
+            <!-- Button to redirect to the Toram Online website -->
             <button onclick="showPlayAlert()">Play Now</button>
         </div>
     </section>
@@ -72,6 +78,7 @@
         <div class="trailer-item">
             <h3 style="text-align: center;">Toram Online Game Trailer</h3>
             <p style="text-align: center;">
+                <!-- Embedded YouTube video for the game trailer -->
                 <iframe width="560" height="500" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 20px;" src="https://www.youtube.com/embed/zLY_PIze90I?si=-WlSYrNpFzd0IPyl" title="YouTube video player" frameborder="0"
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
             </p>
@@ -129,6 +136,7 @@
     <section class="classes-section" id="classes">
         <h2>Character Classes</h2>
         <div class="classes">
+            <!-- Class cards for different character classes -->
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>One handed sword</h3>
                 <div class="media-wrapper">
@@ -205,6 +213,7 @@
     </section>
 
     <div class="floating-buttons">
+        <!-- Floating buttons for scrolling to top and toggling music -->
         <button onclick="scrollToTop()">↑ Top</button>
         <button onclick="toggleMusic()" id="music-btn">🎵</button>
     </div>
