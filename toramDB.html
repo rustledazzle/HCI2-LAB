@@ -3,443 +3,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toram Online - Fan Page</title>
+    <title>Toram Online - Wiki DB</title>
+    <link rel="stylesheet" href="toram.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f6f2;
-        }
-        header {
+        .section.news {
+            text-align: center;
             background-color: #1a2c42;
             color: white;
-            padding: 15px 0;
-            text-align: center;
+            padding-top: 10px;
+            padding-right: 450px;
+            padding-bottom: 10px;
+            padding-left: 450px;
         }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        nav a {
-            color: #f4e4c9;
-            text-decoration: none;
-            padding: 5px 15px;
-        }
-        nav a:hover {
-            background-color: #e3c291;
-            border-radius: 5px;
-        }
-        .hero {
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 150px 0;
-            height: 50vh;
-            overflow: hidden;
-            background-size: 400px 200px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('toram.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(2px);
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }        
-        .hero h1 {
-            font-size: 4em;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-            animation: fadeInDown 1.5s ease-in-out;
-        }
-        .hero p {
-            font-size: 1.5em;
-            color: #e3c291;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-        .hero button {
-            background-color: #e3c291;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        .hero button:hover {
-            background-color: #d0a676;
-            transform: scale(1.05);
-        }
-        .section {
-            padding: 50px;
-            text-align: center;
-        }
-        .news {
-            background-color: #f4f4f4;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 50px;
-        }
-        .news-item {
-            width: 45%;
-            background-color: white;
+        .news-items {
+            width: 100%;
+            background-color: #1a2c42;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
             padding: 20px;
         }
-        .features {
-            background-color: #eae2d7;
-        }
-        .classes-section {
-            background-color: #f8f6f2;
-            padding: 50px;
-            text-align: center;
-        }
-        .classes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .class-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, max-height 0.3s, flex 0.3s;
-            width: 300px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .class-card.expanded {
-            flex: 1 1 100%;
-            max-height: 800px;
-            background-color: #fdfdfd;
-        }
-        .media-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .media-wrapper img {
-            max-width: 100px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .media-wrapper video {
-            max-width: 160px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .class-card p {
-            display: none;
-        }
-        .class-card.expanded p {
-            display: block;
-        }
-        footer {
-            background-color: #1a2c42;
-            color: white;
-            text-align: center;
-            padding: 20px 500px;
-        }
-        select {
-            padding: 5px;
-            margin-top: 10px;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+            #contact {
+                text-align: center;
+                background-color: #f4f4f4; /* Light gray background */
+                padding: 10px; /* Add some padding */
+                border-radius: 5px; /* Rounded corners */
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            }
 
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      line-height: 1.6;
-    }
+            #contact h2 {
+                color: #333; /* Dark text color for the heading */
+                margin-bottom: 20px; /* Add some space below the heading */
+            }
 
-    h1 {
-      margin-bottom: 20px;
-    }
+            #contact form {
+                max-width: 400px; /* Set a maximum width for the form */
+                margin: 0 auto; /* Center the form horizontally */
+                padding: 20px; /* Add some padding to the form */
+                background-color: #1a2c42; /* White background for the form */
+                border-radius: 5px; /* Rounded corners for the form */
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for the form */
+            }
 
-    .container {
-      display: flex;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+            #contact label {
+                display: block; /* Display labels as block elements */
+                margin-bottom: 5px; /* Add some space below each label */
+                color: White; /* Light gray text color for labels */
+            }
 
-    .box {
-      flex: 1 1 500px;
-      padding: 15px;
-      border: 1px solid #ccc;
-      border-radius: 8px;
-      min-width: 300px;
-    }
+            #contact input[type="text"],
+            #contact input[type="email"],
+            #contact textarea {
+                width: 100%; /* Make input fields and textarea full width */
+                padding: 5px; /* Add some padding */
+                margin-bottom: 15px; /* Add some space below each input */
+                border: 1px solid #ddd; /* Light gray border */
+                border-radius: 3px; /* Rounded corners for inputs */
+            }
 
-    select {
-      padding: 5px;
-      margin-top: 10px;
-      width: 100%;
-    }
+            #contact textarea {
+                resize: vertical; /* Allow vertical resizing for the textarea */
+            }
 
-    @media (max-width: 700px) {
-      .container {
-        flex-direction: column;
-      }
-    }
+            #contact button[type="submit"] {
+                background-color: #007bff; /* Blue button color */
+                color: #fff; /* White text color */
+                padding: 10px 20px; /* Add some padding to the button */
+                border: none; /* Remove the default button border */
+                border-radius: 3px; /* Rounded corners for the button */
+                cursor: pointer; /* Show a pointer cursor on hover */
+            }
 
-    @keyframes fadeZoom {
-  from {
-    opacity: 0;
-    transform: scale(0.8);
-  }
-  to {
-    opacity: 1;
-    transform: scale(1);
-  }
-}
+            #contact button[type="submit"]:hover {
+                background-color: #0056b3; /* Darken the button color on hover */
+            }
 
-.element-icon {
-  animation: fadeZoom 0.6s ease-in-out;
-  transition: transform 0.3s;
-}
-
-.element-icon:hover {
-  transform: scale(1.1);
-}
-
-.floating-buttons {
-            position: fixed;
-            bottom: 30px;
-            right: 30px;
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-            z-index: 999;
-    }
-
-    .floating-buttons button {
-            background-color: #1a2c42;
-            color: white;
-            border: none;
-            padding: 10px 14px;
-            border-radius: 50px;
-            font-size: 1em;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-            transition: background-color 0.3s ease;
-    }
-
-    .floating-buttons button:hover {
-            background-color: #e3c291;
-            color: black;
-    }
-
-  </style>
+    </style>
 </head>
-    <body>
-        <header>
-            <h1>Toram Mini Database</h1>
-            <nav>
-                <a href="index.html">Home</a>
-                <a href="#news">News</a>
-                <a href="toramDB.html">Toram DB</a>
-                <a href="aboutus.html">About Us</a>
-            </nav>
-        </header>
-<h1>🗡️ Toram Online Mini Database</h1>
+<body>
+    <header>
+        <h1>Toram Wiki DB</h1>
+        <nav>
+            <!-- Navigation links for different sections of the page -->
+            <a href="index.html">Home</a>
+            <a href="#news">News</a>
+            <a href="toramDB.html">Toram Wiki</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
 
-<div class="container">
-    <!-- Weapon Compatibility Section -->
-    <div class="box">
-      <h2>Weapon Compatibility</h2>
-      <label for="weaponSelect">Choose a Main Weapon:</label><br>
-      <select id="weaponSelect">
-        <option value="">-- Select Weapon --</option>
-        <option value="Sword">Sword</option>
-        <option value="Bow">Bow</option>
-        <option value="Staff">Staff</option>
-        <option value="Knuckle">Knuckle</option>
-        <option value="Halberd">Halberd</option>
-      </select>
-  
-      <div id="weaponInfo"></div>
-    </div>
-  
-    <!-- Element Weakness Section -->
-<div class="box">
-  <h2>Element Weakness</h2>
-  <label for="elementSelect">Choose an Element:</label><br>
-  <select id="elementSelect">
-    <option value="">-- Select Element --</option>
-    <option value="Earth">Earth</option>
-    <option value="Wind">Wind</option>
-    <option value="Water">Water</option>
-    <option value="Fire">Fire</option>
-    <option value="Light">Light</option>
-    <option value="Dark">Dark</option>
-  </select>
+    <h1>🗡️ Toram Online Wiki DB</h1>
 
-  <div id="elementInfo" style="text-align:center;"></div>
-</div>
+    <div class="container">
+        <!-- Weapon Compatibility Section -->
+        <div class="box">
+            <h2>Weapon Compatibility</h2>
+            <label for="weaponSelect">Choose a Main Weapon:</label><br>
+            <select id="weaponSelect">
+                <option value="">-- Select Weapon --</option>
+                <option value="Sword">Sword</option>
+                <option value="Bow">Bow</option>
+                <option value="Staff">Staff</option>
+                <option value="Knuckle">Knuckle</option>
+                <option value="Halberd">Halberd</option>
+            </select>
 
-  
-  <script>
-  // Weapon Data
-  const weaponData = [
-    {
-      main: "Sword",
-      sub: ["Dagger", "Shield", "Arrow"],
-      canDash: true,
-      canGuard: true
-    },
-    {
-      main: "Bow",
-      sub: ["Arrow"],
-      canDash: true,
-      canGuard: false
-    },
-    {
-      main: "Staff",
-      sub: ["Shield", "Dagger"],
-      canDash: true,
-      canGuard: false
-    },
-    {
-      main: "Knuckle",
-      sub: ["Dagger"],
-      canDash: true,
-      canGuard: true
-    },
-    {
-      main: "Halberd",
-      sub: [],
-      canDash: true,
-      canGuard: false
-    }
-  ];
-  
-  // Element Weakness
-  const elementWeakness = {
-    Earth: "Wind",
-    Wind: "Water",
-    Water: "Fire",
-    Fire: "Earth",
-    Light: "Dark",
-    Dark: "Light"
-  };
-  
-  // Functions
-  const music = document.getElementById("bg-music");
-  const button = document.getElementById("music-btn");
-
-function toggleMusic() {
-  const music = document.getElementById("bg-music");
-  const button = document.getElementById("music-btn");
-
-  if (music.paused) {
-    music.play();
-    button.textContent = "⏸";
-  } else {
-    music.pause();
-    button.textContent = "🎵";
-  }
-}
-  function getWeaponInfo(mainWeapon) {
-    return weaponData.find(w => w.main === mainWeapon);
-  }
-  
-  function getWeakness(element) {
-    return elementWeakness[element] || "Unknown";
-  }
-  
-  // DOM Updates
-  document.getElementById("weaponSelect").addEventListener("change", function () {
-    const selected = this.value;
-    const info = getWeaponInfo(selected);
-    const output = document.getElementById("weaponInfo");
-  
-    if (!info) {
-      output.innerHTML = "";
-      return;
-    }
-  
-    output.innerHTML = `
-      <p><strong>Sub Weapons:</strong> ${info.sub.length > 0 ? info.sub.join(", ") : "None"}</p>
-      <p><strong>Can Dash/Dodge:</strong> ${info.canDash ? "✅ Yes" : "❌ No"}</p>
-      <p><strong>Can Guard:</strong> ${info.canGuard ? "✅ Yes" : "❌ No"}</p>
-    `;
-  });
-  
-  document.getElementById("elementSelect").addEventListener("change", function () {
-  const selected = this.value;
-  const weakness = getWeakness(selected);
-  const output = document.getElementById("elementInfo");
-
-  if (!selected) {
-    output.innerHTML = "";
-    return;
-  }
-
-  // Use the folder path with %20 for space
-  const imageSrc = "toram-icons/" + selected.toLowerCase() + "element.png";
-  const weaknessImageSrc = "toram-icons/" + weakness.toLowerCase() + "element.png";
-
-  output.innerHTML = `
-    <div>
-      <p><strong>${selected}</strong> is weak to <strong>${weakness}</strong>.</p>
-      <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap: wrap;">
-        <div>
-          <p><strong>${selected}</strong></p>
-          <img class="element-icon" src="${imageSrc}" alt="${selected} Element" width="100">
+            <div id="weaponInfo"></div>
         </div>
-        <div>
-          <p><strong>${weakness}</strong></p>
-          <img class="element-icon" src="${weaknessImageSrc}" alt="${weakness} Element" width="100">
+
+        <!-- Element Weakness Section -->
+        <div class="box">
+            <h2>Element Weakness</h2>
+            <label for="elementSelect">Choose an Element:</label><br>
+            <select id="elementSelect">
+                <option value="">-- Select Element --</option>
+                <option value="Earth">Earth</option>
+                <option value="Wind">Wind</option>
+                <option value="Water">Water</option>
+                <option value="Fire">Fire</option>
+                <option value="Light">Light</option>
+                <option value="Dark">Dark</option>
+            </select>
+
+            <div id="elementInfo" style="text-align:center;"></div>
         </div>
-      </div>
     </div>
-`;
 
-});
+    <script>
+        // Weapon Data
+        const weaponData = [
+            {
+                main: "Sword",
+                sub: ["Dagger", "Shield", "Arrow"],
+                canDash: true,
+                canGuard: true
+            },
+            {
+                main: "Bow",
+                sub: ["Arrow"],
+                canDash: true,
+                canGuard: false
+            },
+            {
+                main: "Staff",
+                sub: ["Shield", "Dagger"],
+                canDash: true,
+                canGuard: false
+            },
+            {
+                main: "Knuckle",
+                sub: ["Dagger"],
+                canDash: true,
+                canGuard: true
+            },
+            {
+                main: "Halberd",
+                sub: [],
+                canDash: true,
+                canGuard: false
+            }
+        ];
 
+        // Element Weakness
+        const elementWeakness = {
+            Earth: "Wind",
+            Wind: "Water",
+            Water: "Fire",
+            Fire: "Earth",
+            Light: "Dark",
+            Dark: "Light"
+        };
 
-  </script>
-         <!-- Floating Controls: Top & Music -->
-          
+        // Function to toggle background music playback
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+            const button = document.getElementById("music-btn");
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸";
+            } else {
+                music.pause();
+                button.textContent = "🎵";
+            }
+        }
+
+        // Function to get weapon information based on the selected main weapon
+        function getWeaponInfo(mainWeapon) {
+            return weaponData.find(w => w.main === mainWeapon);
+        }
+
+        // Function to get the elemental weakness
+        function getWeakness(element) {
+            return elementWeakness[element] || "Unknown";
+        }
+
+        // Event listener for weapon selection dropdown
+        document.getElementById("weaponSelect").addEventListener("change", function () {
+            const selected = this.value;
+            const info = getWeaponInfo(selected);
+            const output = document.getElementById("weaponInfo");
+
+            if (!info) {
+                output.innerHTML = "";
+                return;
+            }
+
+            output.innerHTML = `
+                <p><strong>Sub Weapons:</strong> ${info.sub.length > 0 ? info.sub.join(", ") : "None"}</p>
+                <p><strong>Can Dash/Dodge:</strong> ${info.canDash ? "✅ Yes" : "❌ No"}</p>
+                <p><strong>Can Guard:</strong> ${info.canGuard ? "✅ Yes" : "❌ No"}</p>
+            `;
+        });
+
+        // Event listener for element selection dropdown
+        document.getElementById("elementSelect").addEventListener("change", function () {
+            const selected = this.value;
+            const weakness = getWeakness(selected);
+            const output = document.getElementById("elementInfo");
+
+            if (!selected) {
+                output.innerHTML = "";
+                return;
+            }
+
+            // Use the folder path with %20 for space
+            const imageSrc = "toram-icons/" + selected.toLowerCase() + "element.png";
+            const weaknessImageSrc = "toram-icons/" + weakness.toLowerCase() + "element.png";
+
+            output.innerHTML = `
+                <div>
+                    <p><strong>${selected}</strong> is weak to <strong>${weakness}</strong>.</p>
+                    <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap: wrap;">
+                        <div>
+                            <p><strong>${selected}</strong></p>
+                            <img class="element-icon" src="${imageSrc}" alt="${selected} Element" width="100">
+                        </div>
+                        <div>
+                            <p><strong>${weakness}</strong></p>
+                            <img class="element-icon" src="${weaknessImageSrc}" alt="${weakness} Element" width="100">
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+    </script>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <form action="#" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <!-- Floating Controls: Music -->
     <div class="floating-buttons">
+        <!-- Floating button for toggling music -->
         <button onclick="toggleMusic()" id="music-btn">🎵</button>
-      </div>
-      
-      <audio id="bg-music" loop>
-          <source src="toramgiffile/Poldeicevalley.mp3" type="audio/mpeg">
-          Your browser does not support the audio element.
-      </audio>
-    <footer>
-        <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="toramgiffile/Poldeicevalley.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <footer class="section news" id="news">
+        <div class="news-items">
+            <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
+        </div>
     </footer>
 </body>
 </html>
