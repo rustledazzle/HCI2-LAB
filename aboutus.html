@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toram Online-About us</title>
+    <title>Toram Online - About Us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -174,6 +174,7 @@
         }
     </style>
     <script>
+        // Function to toggle the expanded state of a class card
         function toggleCard(card) {
             const cards = document.querySelectorAll('.class-card');
             cards.forEach(c => {
@@ -184,10 +185,12 @@
             card.classList.toggle('expanded');
         }
 
+        // Function to smoothly scroll to the top of the page
         function scrollToTop() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
+        // Function to toggle background music playback
         function toggleMusic() {
             const music = document.getElementById("bg-music");
             const button = document.getElementById("music-btn");
@@ -206,6 +209,7 @@
     <header>
         <h1>About Toram</h1>
         <nav>
+            <!-- Navigation links for different sections of the page -->
             <a href="index.html">Home</a>
             <a href="#news">News</a>
             <a href="toramDB.html">Toram Wiki</a>
@@ -221,18 +225,25 @@
     </section>
 
     <section class="section news" id="news" style="text-align: center; background-color: #1a2c42; color: black; padding-top: 10px; padding-right: 100px; padding-bottom: 10px; padding-left: 100px;">
-        
+        <!-- Section for Toram Online information -->
         <div class="news-item">
-            <p>  Toram Online stands out for its deep character customization, non-linear class system, and a vast open world without typical job restrictions. Launched initially on mobile, it captured the hearts of thousands with its anime-style graphics, epic storylines, and action-packed combat system.</p>
+            <p>
+                Toram Online stands out for its deep character customization, non-linear class system, and a vast open world without typical job restrictions. Launched initially on mobile, it captured the hearts of thousands with its anime-style graphics, epic storylines, and action-packed combat system.
+            </p>
         </div>
+
+        <!-- Section for Toram Online PC Release information -->
         <div class="news-item">
             <h3>Toram Online PC Release</h3>
             <h4>Toram Online officially launched for PC (Steam) on June 9, 2022.</h4>
-            <p>This release gave players the chance to experience Toram’s gorgeous world with enhanced visuals and smoother controls on their desktops and laptops, while still supporting cross-platform play with mobile users.</p>
+            <p>
+                This release gave players the chance to experience Toram’s gorgeous world with enhanced visuals and smoother controls on their desktops and laptops, while still supporting cross-platform play with mobile users.
+            </p>
             <img src="toramsteamrelease.png" alt="Steam Release" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 20px;">
             <p><a href="https://en.toram.jp/information/detail/?information_id=6843" target="_blank">Check out for more Info</a></p>
         </div>
 
+        <!-- Section for information about Asobimo, Inc. -->
         <div class="news-item">
             <h3>About Asobimo, Inc.</h3>
             <p>
@@ -261,6 +272,7 @@
 
     <!-- Floating Controls: Top & Music -->
     <div class="floating-buttons">
+        <!-- Floating buttons for scrolling to top and toggling music -->
         <button onclick="scrollToTop()">↑ Top</button>
         <button onclick="toggleMusic()" id="music-btn">🎵</button>
     </div>
