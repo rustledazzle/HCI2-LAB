@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Toram Online - Fan Page</title>
+    <title>Toram Online-About us</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -11,26 +11,31 @@
             padding: 0;
             background-color: #f8f6f2;
         }
+
         header {
             background-color: #1a2c42;
             color: white;
             padding: 15px 0;
             text-align: center;
         }
+
         nav {
             display: flex;
             justify-content: center;
             gap: 30px;
         }
+
         nav a {
             color: #f4e4c9;
             text-decoration: none;
             padding: 5px 15px;
         }
+
         nav a:hover {
             background-color: #e3c291;
             border-radius: 5px;
         }
+
         .hero {
             position: relative;
             color: white;
@@ -38,7 +43,7 @@
             padding: 150px 0;
             height: 50vh;
             overflow: hidden;
-            background-size: 400px 200px;
+            background-size: cover;
         }
 
         .hero::after {
@@ -59,18 +64,21 @@
         .hero-content {
             position: relative;
             z-index: 1;
-        }        
+        }
+
         .hero h1 {
             font-size: 4em;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.7);
             animation: fadeInDown 1.5s ease-in-out;
         }
+
         .hero p {
             font-size: 1.5em;
             color: #e3c291;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
+            text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.7);
             animation: fadeInUp 1.5s ease-in-out;
         }
+
         .hero button {
             background-color: #e3c291;
             border: none;
@@ -78,17 +86,20 @@
             font-size: 1.2em;
             border-radius: 5px;
             cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
             transition: transform 0.3s;
         }
+
         .hero button:hover {
             background-color: #d0a676;
             transform: scale(1.05);
         }
+
         .section {
             padding: 50px;
             text-align: center;
         }
+
         .news {
             background-color: #f4f4f4;
             display: flex;
@@ -96,66 +107,15 @@
             justify-content: center;
             gap: 30px;
         }
+
         .news-item {
-            width: 90%;
+            width: 100%;
             background-color: white;
             border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 10px;
         }
-        .features {
-            background-color: #eae2d7;
-        }
-        .classes-section {
-            background-color: #f8f6f2;
-            padding: 50px;
-            text-align: center;
-        }
-        .classes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .class-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, max-height 0.3s, flex 0.3s;
-            width: 300px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .class-card.expanded {
-            flex: 1 1 100%;
-            max-height: 800px;
-            background-color: #fdfdfd;
-        }
-        .media-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .media-wrapper img {
-            max-width: 100px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .media-wrapper video {
-            max-width: 160px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .class-card p {
-            display: none;
-        }
-        .class-card.expanded p {
-            display: block;
-        }
+
         footer {
             background-color: #1a2c42;
             color: white;
@@ -163,14 +123,29 @@
             display: flex;
             padding: 5px 500px;
         }
+
         @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
+
         .floating-buttons {
             position: fixed;
             bottom: 30px;
@@ -179,9 +154,9 @@
             flex-direction: row;
             gap: 10px;
             z-index: 999;
-    }
+        }
 
-    .floating-buttons button {
+        .floating-buttons button {
             background-color: #1a2c42;
             color: white;
             border: none;
@@ -189,15 +164,14 @@
             border-radius: 50px;
             font-size: 1em;
             cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
             transition: background-color 0.3s ease;
-    }
+        }
 
-    .floating-buttons button:hover {
+        .floating-buttons button:hover {
             background-color: #e3c291;
             color: black;
-    }
-
+        }
     </style>
     <script>
         function toggleCard(card) {
@@ -214,22 +188,18 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-const music = document.getElementById("bg-music");
-const button = document.getElementById("music-btn");
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+            const button = document.getElementById("music-btn");
 
-function toggleMusic() {
-  const music = document.getElementById("bg-music");
-  const button = document.getElementById("music-btn");
-
-  if (music.paused) {
-    music.play();
-    button.textContent = "⏸";
-  } else {
-    music.pause();
-    button.textContent = "🎵";
-  }
-}
-
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸";
+            } else {
+                music.pause();
+                button.textContent = "🎵";
+            }
+        }
     </script>
 </head>
 <body>
@@ -238,26 +208,20 @@ function toggleMusic() {
         <nav>
             <a href="index.html">Home</a>
             <a href="#news">News</a>
-            <a href="toramDB.html">Toram DB</a>
+            <a href="toramDB.html">Toram Wiki</a>
             <a href="aboutus.html">About Us</a>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 style="text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">What is Toram Online</h1>
-            <p style="color: #e3c291; text-shadow: 1px 1px 5px rgba(0,0,0,0.7);">Explore the world, craft your destiny, and battle fierce enemies.</p>
-            
+            <h1 style="text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">About Toram Online</h1>
+            <p style="color: #e3c291; text-shadow: 1px 1px 5px rgba(0,0,0,0.7);">ASOBIMO INC.</p>
         </div>
     </section>
-    
-    <section class="section news" id="news">
 
-        <div class="news-item">
-            <p>Welcome to the Toram Online Fan Page — your ultimate hub for everything Toram! 🌍✨
-                We're a community-driven site made by passionate players who love exploring the expansive world of Toram Online,
-                an MMORPG developed by Asobimo Inc. Whether you're a seasoned adventurer or just starting out, we’re here to share news, updates, class guides, and all things related to this beautifully crafted fantasy realm.</p>
-        </div>
+    <section class="section news" id="news" style="text-align: center; background-color: #1a2c42; color: black; padding-top: 10px; padding-right: 100px; padding-bottom: 10px; padding-left: 100px;">
+        
         <div class="news-item">
             <p>  Toram Online stands out for its deep character customization, non-linear class system, and a vast open world without typical job restrictions. Launched initially on mobile, it captured the hearts of thousands with its anime-style graphics, epic storylines, and action-packed combat system.</p>
         </div>
@@ -268,28 +232,42 @@ function toggleMusic() {
             <img src="toramsteamrelease.png" alt="Steam Release" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 20px;">
             <p><a href="https://en.toram.jp/information/detail/?information_id=6843" target="_blank">Check out for more Info</a></p>
         </div>
+
         <div class="news-item">
             <h3>About Asobimo, Inc.</h3>
             <p>
-                <strong>Asobimo, Inc.</strong> is a Tokyo-based game developer known for creating anime-style MMORPGs like 
-                <em>Toram Online</em>, <em>Avabel Online</em>, and <em>Iruna Online</em>. Founded in 2007, Asobimo focuses on 
-                immersive gameplay, character customization, and global multiplayer experiences for both mobile and PC players.
-              </p>
+                Asobimo, Inc. is a Tokyo-based game developer renowned for creating anime-style MMORPGs that capture the hearts of players worldwide. Founded in 2007, Asobimo's mission is to "Make everyone smile through ‘ASOBI’," focusing on immersive gameplay, character customization, and global multiplayer experiences for both mobile and PC players.
+            </p>
+            <p>
+                Some of their notable titles include:
+                <ul>
+                    <li><strong>Toram Online</strong>: A popular mobile MMORPG known for its deep character customization, non-linear class system, and vast open world.</li>
+                    <li><strong>Avabel Online</strong>: A free-to-play 3D-MMORPG compatible with Android and iOS, offering ultimate graphics and an engaging gaming experience.</li>
+                    <li><strong>Iruna Online</strong>: Another anime-style MMORPG that provides players with a rich and interactive world to explore.</li>
+                </ul>
+            </p>
+            <p>
+                Asobimo's commitment to quality and innovation has earned them a dedicated fan base and critical acclaim. Their games are designed to provide hours of entertainment, allowing players to craft their destinies in beautifully crafted fantasy realms.
+            </p>
+            <p>
+                For more information, you can visit their official website at <a href="https://asobimo.com/?l=en" target="_blank">Asobimo, Inc.</a>.
+            </p>
         </div>
+    </section>
+
     <footer>
         <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
     </footer>
 
-        <!-- Floating Controls: Top & Music -->
+    <!-- Floating Controls: Top & Music -->
     <div class="floating-buttons">
         <button onclick="scrollToTop()">↑ Top</button>
         <button onclick="toggleMusic()" id="music-btn">🎵</button>
     </div>
-    
+
     <audio id="bg-music" autoplay loop>
         <source src="toramgiffile/88. Zoktzda Ruins [Regular Maps].mp3" type="audio/mpeg">
         Your browser does not support the audio element.
     </audio>
-  
 </body>
 </html>
