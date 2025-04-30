@@ -4,202 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Toram Online - Fan Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f8f6f2;
-        }
-        header {
-            background-color: #1a2c42;
-            color: white;
-            padding: 15px 0;
-            text-align: center;
-        }
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-        }
-        nav a {
-            color: #f4e4c9;
-            text-decoration: none;
-            padding: 5px 15px;
-        }
-        nav a:hover {
-            background-color: #e3c291;
-            border-radius: 5px;
-        }
-        .hero {
-            position: relative;
-            color: white;
-            text-align: center;
-            padding: 150px 0;
-            height: 50vh;
-            overflow: hidden;
-            background-size: 400px 200px;
-        }
-
-        .hero::after {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('toram.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            filter: blur(2px);
-            z-index: 0;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-        }        
-        .hero h1 {
-            font-size: 4em;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.7);
-            animation: fadeInDown 1.5s ease-in-out;
-        }
-        .hero p {
-            font-size: 1.5em;
-            color: #e3c291;
-            text-shadow: 1px 1px 5px rgba(0,0,0,0.7);
-            animation: fadeInUp 1.5s ease-in-out;
-        }
-        .hero button {
-            background-color: #e3c291;
-            border: none;
-            padding: 15px 30px;
-            font-size: 1.2em;
-            border-radius: 5px;
-            cursor: pointer;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-            transition: transform 0.3s;
-        }
-        .hero button:hover {
-            background-color: #d0a676;
-            transform: scale(1.05);
-        }
-        .section {
-            padding: 50px;
-            text-align: center;
-        }
-        .news {
-            background-color: #f4f4f4;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 30px;
-        }
-        .news-item {
-            width: 45%;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            padding: 20px;
-        }
-        .features {
-            background-color: #eae2d7;
-        }
-        .classes-section {
-            background-color: #f8f6f2;
-            padding: 50px;
-            text-align: center;
-        }
-        .classes {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .class-card {
-            border: 1px solid #ddd;
-            padding: 20px;
-            margin: 15px;
-            border-radius: 10px;
-            background-color: #fff;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-            transition: transform 0.3s, max-height 0.3s, flex 0.3s;
-            width: 300px;
-            overflow: hidden;
-            cursor: pointer;
-        }
-        .class-card.expanded {
-            flex: 1 1 100%;
-            max-height: 800px;
-            background-color: #fdfdfd;
-        }
-        .media-wrapper {
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            justify-content: center;
-            flex-wrap: wrap;
-        }
-        .media-wrapper img {
-            max-width: 150px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .media-wrapper video {
-            max-width: 500px;
-            height: auto;
-            border-radius: 10px;
-        }
-        .class-card p {
-            display: none;
-        }
-        .class-card.expanded p {
-            display: block;
-        }
-        footer {
-            background-color: #1a2c42;
-            color: white;
-            text-align: center;
-            padding: 20px 0;
-        }
-        @keyframes fadeInDown {
-            from { opacity: 0; transform: translateY(-30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        .floating-buttons {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  display: flex;
-  flex-direction: row;
-  gap: 10px;
-  z-index: 999;
-}
-
-.floating-buttons button {
-  background-color: #1a2c42;
-  color: white;
-  border: none;
-  padding: 10px 14px;
-  border-radius: 50px;
-  font-size: 1em;
-  cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
-  transition: background-color 0.3s ease;
-}
-
-.floating-buttons button:hover {
-  background-color: #e3c291;
-  color: black;
-}
-
-
-    </style>
+    <link rel="stylesheet" href="toram.css">
     <script>
         function toggleCard(card) {
             const cards = document.querySelectorAll('.class-card');
@@ -210,9 +15,37 @@
             });
             card.classList.toggle('expanded');
         }
-    </script>
 
-    
+        function showPlayAlert() {
+            const go = confirm("You will be redirected to: https://en.toram.jp\n\nContinue?");
+            if (go) {
+                window.location.href = "https://en.toram.jp";
+            }
+        }
+
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+            const button = document.getElementById("music-btn");
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸";
+            } else {
+                music.pause();
+                button.textContent = "🎵";
+            }
+        }
+
+        // Show button when user scrolls down 20px
+        window.onscroll = function() {
+            const btn = document.getElementById("topBtn");
+            btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? "block" : "none";
+        };
+    </script>
 </head>
 <body>
     <header>
@@ -222,73 +55,37 @@
             <a href="#news">News</a>
             <a href="#features">Game Features</a>
             <a href="#classes">Character Classes</a>
-            <a href="toramDB.html">Toram DB</a>
+            <a href="toramDB.html">Toram Wiki</a>
             <a href="aboutus.html">About Us</a>
         </nav>
     </header>
 
     <section class="hero" id="home">
         <div class="hero-content">
-            <h1 style="text-shadow: 2px 2px 10px rgba(0,0,0,0.7);">Toram Online Fan Page</h1>
-            <p style="color: #e3c291; text-shadow: 1px 1px 5px rgba(0,0,0,0.7);">Explore the world, craft your destiny, and battle fierce enemies.</p>
+            <h1>Toram Online Fan Page</h1>
+            <p>Explore the world, craft your destiny, and battle fierce enemies.</p>
             <button onclick="showPlayAlert()">Play Now</button>
-
-<script>
-function showPlayAlert() {
-  const go = confirm("You will be redirected to: https://en.toram.jp\n\nContinue?");
-  if (go) {
-    window.location.href = "https://en.toram.jp";
-  }
-}
-function scrollToTop() {
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-function toggleMusic() {
-  const music = document.getElementById("bg-music");
-  const button = document.getElementById("music-btn");
-
-  if (music.paused) {
-    music.play();
-    button.textContent = "⏸";
-  } else {
-    music.pause();
-    button.textContent = "🎵";
-  }
-}
-
-
-// Show button when user scrolls down 20px
-window.onscroll = function() {
-    const btn = document.getElementById("topBtn");
-    btn.style.display = (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) ? "block" : "none";
-};
-
-// Scroll to top function
-function scrollToTop() {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-}
-
-</script>
-
         </div>
     </section>
+
     <section class="section trailer" id="trailer">
         <div class="trailer-item">
             <h3 style="text-align: center;">Toram Online Game Trailer</h3>
             <p style="text-align: center;">
-            <iframe width="560" height="500" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 20px;" src="https://www.youtube.com/embed/zLY_PIze90I?si=-WlSYrNpFzd0IPyl" title="YouTube video player" frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-            </p></div>
-            <div class="trailer-item">
-                <p style="text-align: center;">
-                    Toram Online is a free-to-play MMORPG developed by Asobimo, set in a vast fantasy world shattered by a mysterious catastrophe. With no rigid class system, 
-                    you can freely customize your character’s skills, weapons, and appearance. Team up with players from around the globe, battle epic bosses, explore open fields and dungeons, and craft powerful gear in a beautifully stylized anime world.
-                </p></div>
+                <iframe width="560" height="500" style="width: 100%; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.3); margin-top: 20px;" src="https://www.youtube.com/embed/zLY_PIze90I?si=-WlSYrNpFzd0IPyl" title="YouTube video player" frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </p>
+        </div>
+        <div class="trailer-item">
+            <p style="text-align: center;">
+                Toram Online is a free-to-play MMORPG developed by Asobimo, set in a vast fantasy world shattered by a mysterious catastrophe. With no rigid class system,
+                you can freely customize your character’s skills, weapons, and appearance. Team up with players from around the globe, battle epic bosses, explore open fields and dungeons, and craft powerful gear in a beautifully stylized anime world.
+            </p>
+        </div>
     </section>
+
     <h2 style="text-align: center;">Toram Online News</h2>
     <section class="section news" id="news">
-
         <div class="news-item">
             <h3>Spring Festival Celebration 2025</h3>
             <p>Join the seasonal festivities with limited-time quests, exclusive outfits, and event-only bosses! Available from March 15 to April 15, 2025.</p>
@@ -321,12 +118,10 @@ function scrollToTop() {
         <p>With more than 500 billion combinations available, feel free to create your own character to your liking!</p>
         <p>Sword? Magic? Anything you like!</p>
         <img src="toramgiffile/WeaponTypeSelection_en.gif" alt="Character Classes">
-        <br>
-        <br>
+        <br><br>
         <h4>Enjoy Toram Online on your big computer screen without having to worry about your data usage or battery!</h4>
         <p>"Unravel the mysteries of a shattered world and forge your own path in a story-rich MMORPG unlike any other."</p>
         <img src="toramgiffile/toram_MaskedWarrior2.gif" alt="two characters fighting">
-        
         <p>You can customize your gear any way you like.</p>
         <img src="toramgiffile/alchemytoram.gif" alt="Color Cuztomization">
     </section>
@@ -334,36 +129,34 @@ function scrollToTop() {
     <section class="classes-section" id="classes">
         <h2>Character Classes</h2>
         <div class="classes">
-            <!-- Existing class cards -->
-            <!-- Additional Katana Samurai card -->
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>One handed sword</h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\ohsicon.png" alt="One handed Sword Icon">
-                    <img src="toramgiffile\toramohs.gif" alt="One Handed Sword demo">
+                    <img src="toram-icons/ohsicon.png" alt="One handed Sword Icon">
+                    <img src="toramgiffile/toramohs.gif" alt="One Handed Sword demo">
                 </div>
                 <p>A versatile melee class that balances speed, defense, and offense. One-handed sword users can adapt to multiple playstyles, from quick solo combat to tanky frontline roles.</p>
             </div>
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>Katana </h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\ktnicon.png" alt="Katana Icon">
-                    <img src="toramgiffile\toramktn.gif" alt="Katana Samurai Demo">
+                    <img src="toram-icons/ktnicon.png" alt="Katana Icon">
+                    <img src="toramgiffile/toramktn.gif" alt="Katana Samurai Demo">
                 </div>
                 <p>Masters of precise timing and counterattacks. Excels in high-risk, high-reward skill techniques. Katana users rely on timing and concentration for high burst damage and fluid combat flow.</p>
             </div>
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>Two Handed Sword</h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\thsicon.png" alt="THS Icon">
-                    <img src="toramgiffile\toram2h.gif" alt="Two Handed Sword Demo">
+                    <img src="toram-icons/thsicon.png" alt="THS Icon">
+                    <img src="toramgiffile/toram2h.gif" alt="Two Handed Sword Demo">
                 </div>
                 <p>2HS users are heavy-hitting warriors that sacrifice speed for raw power. Their wide-reaching attacks and critical-based skills make them deadly on the battlefield.</p>
             </div>
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>Dual Wield or Dual Sword</h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\dualswordicon.png" alt="Dual Sword Icon">
+                    <img src="toram-icons/dualswordicon.png" alt="Dual Sword Icon">
                     <img src="toramgiffile/toramdw.gif" alt="Dual Wield Demo">
                 </div>
                 <p>Fast and flashy, dual sword users specialize in rapid combos and high mobility. They rely on precise timing and critical hits to overwhelm enemies.</p>
@@ -371,16 +164,16 @@ function scrollToTop() {
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>Halberd</h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\hbicon.png" alt="Halberd Icon">
-                    <img src="toramgiffile\toramhb.gif" alt="Halberd Demo">
+                    <img src="toram-icons/hbicon.png" alt="Halberd Icon">
+                    <img src="toramgiffile/toramhb.gif" alt="Halberd Demo">
                 </div>
                 <p>A burst damage class that uses skills with high critical potential. Halberd users are known for Dragon Tooth, a signature move that delivers massive damage with the right setup.</p>
             </div>
             <div class="class-card" onclick="toggleCard(this)">
                 <h3>Knuckles</h3>
                 <div class="media-wrapper">
-                    <img src="toram-icons\knucksicon.png" alt="Knuckles Icon">
-                    <img src="toramgiffile\toramknuck.gif" alt="Knuckles Demo">
+                    <img src="toram-icons/knucksicon.png" alt="Knuckles Icon">
+                    <img src="toramgiffile/toramknuck.gif" alt="Knuckles Demo">
                 </div>
                 <p>Knuckle users are close-combat specialists who emphasize speed, status effects, and combos. They are excellent for interrupting bosses and maintaining aggro with support options.</p>
             </div>
@@ -414,19 +207,15 @@ function scrollToTop() {
     <div class="floating-buttons">
         <button onclick="scrollToTop()">↑ Top</button>
         <button onclick="toggleMusic()" id="music-btn">🎵</button>
-      </div>
-      
-      <audio id="bg-music" autoplay loop>
+    </div>
+
+    <audio id="bg-music" autoplay loop>
         <source src="toramgiffile/CharsettingBGM.mp3" type="audio/mpeg">
         Your browser does not support the audio element.
-      </audio>
-      
+    </audio>
+
     <footer>
         <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
     </footer>
-
-    <!-- Floating Controls: Top & Music -->
-
-  
 </body>
 </html>
