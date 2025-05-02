@@ -246,11 +246,33 @@
                 </div>
             `;
         });
-    </script>
 
-    <section id="contact">
+         // Form submission handler
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Basic validation
+            if (!name || !email || !message) {
+                document.getElementById("formResponse").innerHTML = "<p style='color: red;'>Please fill in all fields.</p>";
+                return;
+            }
+
+            // Simulate a successful submission
+            document.getElementById("formResponse").innerHTML = "<p style='color: green;'>Message sent successfully!</p>";
+
+            // Clear the form
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+  
+<section id="contact">
         <h2>Contact Us</h2>
-        <form action="#" method="post">
+        <form id="contactForm" method="post">
             <label for="name">Name:</label><br>
             <input type="text" id="name" name="name" required><br><br>
 
@@ -262,6 +284,7 @@
 
             <button type="submit">Send Message</button>
         </form>
+        <div id="formResponse"></div>
     </section>
 
     <!-- Floating Controls: Music -->
