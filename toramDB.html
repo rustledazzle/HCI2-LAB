@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toram Online - Wiki DB</title>
+    <link rel="stylesheet" href="toram.css">
+    <style>
+        .section.news {
+            text-align: center;
+            background-color: #1a2c42;
+            color: white;
+            padding-top: 10px;
+            padding-right: 450px;
+            padding-bottom: 10px;
+            padding-left: 450px;
+        }
+        .news-items {
+            width: 100%;
+            background-color: #1a2c42;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+        }
+            #contact {
+                text-align: center;
+                background-color: #f4f4f4; /* Light gray background */
+                padding: 10px; /* Add some padding */
+                border-radius: 5px; /* Rounded corners */
+                box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+            }
+
+            #contact h2 {
+                color: #333; /* Dark text color for the heading */
+                margin-bottom: 20px; /* Add some space below the heading */
+            }
+
+            #contact form {
+                max-width: 400px; /* Set a maximum width for the form */
+                margin: 0 auto; /* Center the form horizontally */
+                padding: 20px; /* Add some padding to the form */
+                background-color: #1a2c42; /* White background for the form */
+                border-radius: 5px; /* Rounded corners for the form */
+                box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for the form */
+            }
+
+            #contact label {
+                display: block; /* Display labels as block elements */
+                margin-bottom: 5px; /* Add some space below each label */
+                color: White; /* Light gray text color for labels */
+            }
+
+            #contact input[type="text"],
+            #contact input[type="email"],
+            #contact textarea {
+                width: 100%; /* Make input fields and textarea full width */
+                padding: 5px; /* Add some padding */
+                margin-bottom: 15px; /* Add some space below each input */
+                border: 1px solid #ddd; /* Light gray border */
+                border-radius: 3px; /* Rounded corners for inputs */
+            }
+
+            #contact textarea {
+                resize: vertical; /* Allow vertical resizing for the textarea */
+            }
+
+            #contact button[type="submit"] {
+                background-color: #007bff; /* Blue button color */
+                color: #fff; /* White text color */
+                padding: 10px 20px; /* Add some padding to the button */
+                border: none; /* Remove the default button border */
+                border-radius: 3px; /* Rounded corners for the button */
+                cursor: pointer; /* Show a pointer cursor on hover */
+            }
+
+            #contact button[type="submit"]:hover {
+                background-color: #0056b3; /* Darken the button color on hover */
+            }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Toram Wiki DB</h1>
+        <nav>
+            <!-- Navigation links for different sections of the page -->
+            <a href="index.html">Home</a>
+            <a href="#news">News</a>
+            <a href="toramDB.html">Toram Wiki</a>
+            <a href="aboutus.html">About Us</a>
+        </nav>
+    </header>
+
+    <h1>🗡️ Toram Online Wiki DB</h1>
+
+    <div class="container">
+        <!-- Weapon Compatibility Section -->
+        <div class="box">
+            <h2>Weapon Compatibility</h2>
+            <label for="weaponSelect">Choose a Main Weapon:</label><br>
+            <select id="weaponSelect">
+                <option value="">-- Select Weapon --</option>
+                <option value="Sword">Sword</option>
+                <option value="Bow">Bow</option>
+                <option value="Staff">Staff</option>
+                <option value="Knuckle">Knuckle</option>
+                <option value="Halberd">Halberd</option>
+            </select>
+
+            <div id="weaponInfo"></div>
+        </div>
+
+        <!-- Element Weakness Section -->
+        <div class="box">
+            <h2>Element Weakness</h2>
+            <label for="elementSelect">Choose an Element:</label><br>
+            <select id="elementSelect">
+                <option value="">-- Select Element --</option>
+                <option value="Earth">Earth</option>
+                <option value="Wind">Wind</option>
+                <option value="Water">Water</option>
+                <option value="Fire">Fire</option>
+                <option value="Light">Light</option>
+                <option value="Dark">Dark</option>
+            </select>
+
+            <div id="elementInfo" style="text-align:center;"></div>
+        </div>
+    </div>
+
+    <script>
+        // Weapon Data
+        const weaponData = [
+            {
+                main: "Sword",
+                sub: ["Dagger", "Shield", "Arrow"],
+                canDash: true,
+                canGuard: true
+            },
+            {
+                main: "Bow",
+                sub: ["Arrow"],
+                canDash: true,
+                canGuard: false
+            },
+            {
+                main: "Staff",
+                sub: ["Shield", "Dagger"],
+                canDash: true,
+                canGuard: false
+            },
+            {
+                main: "Knuckle",
+                sub: ["Dagger"],
+                canDash: true,
+                canGuard: true
+            },
+            {
+                main: "Halberd",
+                sub: [],
+                canDash: true,
+                canGuard: false
+            }
+        ];
+
+        // Element Weakness
+        const elementWeakness = {
+            Earth: "Wind",
+            Wind: "Water",
+            Water: "Fire",
+            Fire: "Earth",
+            Light: "Dark",
+            Dark: "Light"
+        };
+
+        // Function to toggle background music playback
+        function toggleMusic() {
+            const music = document.getElementById("bg-music");
+            const button = document.getElementById("music-btn");
+
+            if (music.paused) {
+                music.play();
+                button.textContent = "⏸";
+            } else {
+                music.pause();
+                button.textContent = "🎵";
+            }
+        }
+
+        // Function to get weapon information based on the selected main weapon
+        function getWeaponInfo(mainWeapon) {
+            return weaponData.find(w => w.main === mainWeapon);
+        }
+
+        // Function to get the elemental weakness
+        function getWeakness(element) {
+            return elementWeakness[element] || "Unknown";
+        }
+
+        // Event listener for weapon selection dropdown
+        document.getElementById("weaponSelect").addEventListener("change", function () {
+            const selected = this.value;
+            const info = getWeaponInfo(selected);
+            const output = document.getElementById("weaponInfo");
+
+            if (!info) {
+                output.innerHTML = "";
+                return;
+            }
+
+            output.innerHTML = `
+                <p><strong>Sub Weapons:</strong> ${info.sub.length > 0 ? info.sub.join(", ") : "None"}</p>
+                <p><strong>Can Dash/Dodge:</strong> ${info.canDash ? "✅ Yes" : "❌ No"}</p>
+                <p><strong>Can Guard:</strong> ${info.canGuard ? "✅ Yes" : "❌ No"}</p>
+            `;
+        });
+
+        // Event listener for element selection dropdown
+        document.getElementById("elementSelect").addEventListener("change", function () {
+            const selected = this.value;
+            const weakness = getWeakness(selected);
+            const output = document.getElementById("elementInfo");
+
+            if (!selected) {
+                output.innerHTML = "";
+                return;
+            }
+
+            // Use the folder path with %20 for space
+            const imageSrc = "toram-icons/" + selected.toLowerCase() + "element.png";
+            const weaknessImageSrc = "toram-icons/" + weakness.toLowerCase() + "element.png";
+
+            output.innerHTML = `
+                <div>
+                    <p><strong>${selected}</strong> is weak to <strong>${weakness}</strong>.</p>
+                    <div style="display:flex; justify-content:center; align-items:center; gap:20px; flex-wrap: wrap;">
+                        <div>
+                            <p><strong>${selected}</strong></p>
+                            <img class="element-icon" src="${imageSrc}" alt="${selected} Element" width="100">
+                        </div>
+                        <div>
+                            <p><strong>${weakness}</strong></p>
+                            <img class="element-icon" src="${weaknessImageSrc}" alt="${weakness} Element" width="100">
+                        </div>
+                    </div>
+                </div>
+            `;
+        });
+
+         // Form submission handler
+        document.getElementById("contactForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent the default form submission
+
+            // Get form data
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const message = document.getElementById("message").value;
+
+            // Basic validation
+            if (!name || !email || !message) {
+                document.getElementById("formResponse").innerHTML = "<p style='color: red;'>Please fill in all fields.</p>";
+                return;
+            }
+
+            // Simulate a successful submission
+            document.getElementById("formResponse").innerHTML = "<p style='color: green;'>Message sent successfully!</p>";
+
+            // Clear the form
+            document.getElementById("contactForm").reset();
+        });
+    </script>
+  
+<section id="contact">
+        <h2>Contact Us</h2>
+        <form id="contactForm" method="post">
+            <label for="name">Name:</label><br>
+            <input type="text" id="name" name="name" required><br><br>
+
+            <label for="email">Email:</label><br>
+            <input type="email" id="email" name="email" required><br><br>
+
+            <label for="message">Message:</label><br>
+            <textarea id="message" name="message" rows="5" required></textarea><br><br>
+
+            <button type="submit">Send Message</button>
+        </form>
+        <div id="formResponse"></div>
+    </section>
+
+    <!-- Floating Controls: Music -->
+    <div class="floating-buttons">
+        <!-- Floating button for toggling music -->
+        <button onclick="toggleMusic()" id="music-btn">🎵</button>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="toramgiffile/Poldeicevalley.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <footer class="section news" id="news">
+        <div class="news-items">
+            <p>&copy; 2025 Toram Online Fan Page. Not affiliated with Asobimo Inc.</p>
+        </div>
+    </footer>
+</body>
+</html>
